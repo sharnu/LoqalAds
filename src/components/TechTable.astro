@@ -1,0 +1,32 @@
+---
+interface Row {
+  domain: string;
+  tech: string;
+}
+
+interface Props {
+  rows: Row[];
+}
+
+const { rows } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-xl border border-line">
+  <table class="w-full border-collapse text-left text-sm">
+    <tbody>
+      {
+        rows.map((row, i) => (
+          <tr class={i % 2 === 1 ? 'bg-mist' : 'bg-white'}>
+            <th
+              scope="row"
+              class="w-1/3 border-b border-line px-5 py-4 align-top font-display text-sm font-semibold text-ink"
+            >
+              {row.domain}
+            </th>
+            <td class="border-b border-line px-5 py-4 leading-6 text-slate-600">{row.tech}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

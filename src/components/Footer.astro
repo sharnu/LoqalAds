@@ -1,0 +1,79 @@
+---
+import { site, nav } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-slate-400">
+  <div class="spectrum-bar"></div>
+  <div class="wrap py-14 sm:py-16">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3">
+          <img
+            src="/nexus-logo-sm.png"
+            alt=""
+            width="44"
+            height="44"
+            class="h-11 w-11 rounded-xl ring-1 ring-white/10"
+          />
+          <span class="font-display text-base font-bold text-white">Nexus Engineering</span>
+        </div>
+        <p class="mt-4 max-w-sm text-sm leading-6">
+          Nexus Engineering is the software engineering practice of {site.legalName}. A small,
+          senior squad that designs, builds, ships, and maintains production-grade software,
+          end-to-end.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Explore</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {
+            nav.map((item) => (
+              <li>
+                <a href={item.href} class="transition-colors hover:text-white">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+          <li><a href="/contact" class="transition-colors hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Get in touch</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li>
+            <a href={`mailto:${site.email}`} class="transition-colors hover:text-white">
+              {site.email}
+            </a>
+          </li>
+          <li>
+            <a href={`tel:${site.phoneRaw}`} class="transition-colors hover:text-white">
+              {site.phone}
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-colors hover:text-white"
+            >
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>&copy; {year} {site.legalName}. All rights reserved.</p>
+      <p>{site.tagline}</p>
+    </div>
+  </div>
+</footer>

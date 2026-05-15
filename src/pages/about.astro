@@ -1,0 +1,155 @@
+---
+import { spectrum } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import CTABand from '../components/CTABand.astro';
+
+const glance = [
+  { label: 'Team', value: 'A small, senior squad of 5–10 engineers.' },
+  {
+    label: 'Experience',
+    value: '14 to 25 years per engineer across full-stack, cloud, data, and enterprise software.',
+  },
+  {
+    label: 'Delivery model',
+    value: 'Fully remote and distributed; flexible working hours aligned to client time zones.',
+  },
+  {
+    label: 'Engagement',
+    value: 'Flexible engagement models tailored to project scope and client preference.',
+  },
+  { label: 'Focus', value: 'End-to-end delivery: discovery, design, build, ship, run.' },
+];
+
+const values = [
+  {
+    title: 'Craftsmanship',
+    text: 'We write software that the next engineer to read it will thank us for.',
+  },
+  {
+    title: 'Honesty over optimism',
+    text: 'We tell you what is hard, what is risky, and what is going to take longer than you hoped.',
+  },
+  {
+    title: 'Ownership',
+    text: 'Once a problem is ours, it is ours until it is solved.',
+  },
+  {
+    title: 'Pragmatism',
+    text: 'We choose the simplest solution that meets your requirements and scales with you.',
+  },
+];
+
+const reasons = [
+  {
+    title: 'Senior on every seat',
+    text: 'Every engineer on your project has 14–25 years of experience. There are no juniors learning on your timeline or your budget.',
+  },
+  {
+    title: 'Direct accountability',
+    text: 'You talk to the people building your software. No account-manager layer, no telephone game, no information loss between you and the keyboard.',
+  },
+  {
+    title: 'Full-lifecycle ownership',
+    text: 'We do not hand off discovery to design to development to support. The same team that scopes your project is responsible for it running well in production.',
+  },
+  {
+    title: 'Right-sized engagements',
+    text: 'We are small enough to care about every project, and senior enough to take on serious ones. We will turn down work that is not a good fit — and tell you why.',
+  },
+  {
+    title: 'Honest engineering judgement',
+    text: 'We will tell you when a feature is the wrong feature, when a deadline is unrealistic, and when a simpler approach will serve you better. Optimism is not a delivery strategy.',
+  },
+  {
+    title: 'Long-term partnership',
+    text: 'Most of our work comes from clients who came back. We build software that lasts and relationships that last with it.',
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Nexus Engineering is a fully remote, distributed team of senior engineers — built around one principle: senior engineers, working directly with clients, delivering software they would be proud to put their name on."
+>
+  <PageHeader
+    eyebrow="Who we are"
+    title="Careers spent building software — not stints."
+    intro="Nexus Engineering is a fully remote, distributed software engineering team built around one principle: senior engineers, working directly with clients, delivering software they would be proud to put their name on."
+  />
+
+  <Section>
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <p class="eyebrow">At a glance</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl">A team you can hire whole.</h2>
+        <p class="mt-4 text-slate-600">
+          Between us, we have shipped enterprise systems, consumer-scale web platforms, cloud
+          migrations, data pipelines, and AI-driven products for organizations of every size. We
+          have seen what works, what does not, and where projects quietly go wrong. That experience
+          is what you hire when you hire us.
+        </p>
+      </div>
+      <div class="lg:col-span-7">
+        <dl class="overflow-hidden rounded-xl border border-line">
+          {
+            glance.map((row, i) => (
+              <div class={`grid grid-cols-1 sm:grid-cols-3 ${i % 2 === 1 ? 'bg-mist' : 'bg-white'}`}>
+                <dt class="border-b border-line px-5 py-4 font-display text-sm font-semibold text-ink">
+                  {row.label}
+                </dt>
+                <dd class="border-b border-line px-5 pb-4 pt-0 text-[15px] leading-7 text-slate-600 sm:col-span-2 sm:pt-4">
+                  {row.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="mist">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Our values</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">What we will not compromise on.</h2>
+    </div>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        values.map((v, i) => (
+          <Card accent={spectrum[i % spectrum.length]}>
+            <h3 class="text-lg">{v.title}</h3>
+            <p class="mt-2 text-[15px] leading-7 text-slate-600">{v.text}</p>
+          </Card>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-2xl">
+      <p class="eyebrow">Why Nexus Engineering</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">
+        What a capabilities list cannot show on paper.
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Judgement, ownership, and the kind of seniority that prevents expensive mistakes. Here is
+        what makes the difference in practice.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        reasons.map((r, i) => (
+          <Card accent={spectrum[i % spectrum.length]}>
+            <h3 class="text-lg">{r.title}</h3>
+            <p class="mt-2 text-[15px] leading-7 text-slate-600">{r.text}</p>
+          </Card>
+        ))
+      }
+    </div>
+  </Section>
+
+  <CTABand />
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import { spectrum } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Section from '../../components/Section.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const studies = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Work"
+  description="Representative engagements from Nexus Engineering — illustrative of the production-grade software we design, build, and ship for clients."
+>
+  <PageHeader
+    eyebrow="Representative work"
+    title="Engagements we are proud of."
+    intro="The engagements below are illustrative of the kind of work we deliver. Specific client references and detailed case studies are available on request, subject to confidentiality."
+  />
+
+  <Section>
+    <div class="grid gap-6 lg:grid-cols-2">
+      {
+        studies.map((study, i) => (
+          <CaseStudyCard
+            href={`/work/${study.slug}`}
+            service={study.data.service}
+            title={study.data.title}
+            client={study.data.client}
+            summary={study.data.summary}
+            outcomes={study.data.outcomes}
+            accent={spectrum[i % spectrum.length]}
+          />
+        ))
+      }
+    </div>
+    <p class="mt-10 text-sm text-slate-500">
+      Please contact us to discuss case studies relevant to your industry and problem domain.
+    </p>
+  </Section>
+
+  <CTABand />
+</BaseLayout>

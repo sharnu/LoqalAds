@@ -1,0 +1,222 @@
+---
+import { spectrum } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Section from '../components/Section.astro';
+import ServiceBlock from '../components/ServiceBlock.astro';
+import CheckList from '../components/CheckList.astro';
+import TechTable from '../components/TechTable.astro';
+import CTABand from '../components/CTABand.astro';
+
+const c = spectrum;
+
+const techRows = [
+  { domain: 'Front-End', tech: 'React, Angular, Vue, TypeScript, Next.js, Tailwind, modern CSS' },
+  { domain: 'Back-End', tech: 'Java (Spring Boot), .NET / C#, Node.js, Python (FastAPI, Django), Go' },
+  { domain: 'Mobile', tech: 'React Native, Flutter, native iOS/Android collaboration' },
+  { domain: 'Databases', tech: 'PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Redis, DynamoDB' },
+  { domain: 'Cloud Platforms', tech: 'AWS, Microsoft Azure, Google Cloud Platform' },
+  {
+    domain: 'DevOps & Infra',
+    tech: 'Docker, Kubernetes, Terraform, GitHub Actions, Azure DevOps, Jenkins, ArgoCD',
+  },
+  { domain: 'Data & Analytics', tech: 'Snowflake, Databricks, Apache Spark, Airflow, dbt, Kafka' },
+  {
+    domain: 'AI / ML',
+    tech: 'Python ML stack, PyTorch, TensorFlow, scikit-learn, LLM integration, RAG systems',
+  },
+  { domain: 'Integration', tech: 'REST, GraphQL, gRPC, event streaming, ESB and iPaaS platforms' },
+  {
+    domain: 'Observability',
+    tech: 'Datadog, New Relic, Grafana, Prometheus, ELK stack, OpenTelemetry',
+  },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="End-to-end software development from Nexus Engineering — discovery, architecture, UI/UX, development, QA, DevOps, and production support."
+>
+  <PageHeader
+    eyebrow="What we do"
+    title="End-to-end software development."
+    intro="We take responsibility for the entire journey — from a half-formed idea to a system running reliably in production. Each phase below is a service we deliver in its own right, or as part of a full-lifecycle engagement."
+  />
+
+  <Section>
+    <ServiceBlock
+      number="01"
+      title="Requirement Gathering & Discovery"
+      summary="Most software projects fail before any code is written, because the wrong problem gets defined. We invest seriously in this phase."
+      deliverables="Requirements specification, scope document, prioritized backlog, and a clear statement of what is in and out of scope."
+      color={c[0]}
+    >
+      <CheckList
+        color={c[0]}
+        items={[
+          'Stakeholder interviews with business owners, end users, and technical sponsors.',
+          'Business process mapping and user journey definition.',
+          'Functional and non-functional requirements documentation.',
+          'Constraints discovery: compliance, integration, performance, budget, timeline.',
+          'Feasibility analysis and risk identification.',
+        ]}
+      />
+    </ServiceBlock>
+
+    <ServiceBlock
+      number="02"
+      title="Solution Architecture & Technical Design"
+      summary="We translate requirements into an architecture that is right-sized for today and ready for tomorrow."
+      deliverables="Architecture document, technology decisions log, API specifications, data model, and a defensible roadmap."
+      color={c[1]}
+    >
+      <CheckList
+        color={c[1]}
+        items={[
+          'System architecture: monolith, microservices, serverless, or hybrid — chosen for your context, not for fashion.',
+          'Technology stack selection with honest trade-off analysis.',
+          'Data modeling, API design, and integration architecture.',
+          'Security architecture, authentication, authorization, and data protection.',
+          'Scalability, performance, and cost modeling.',
+        ]}
+      />
+    </ServiceBlock>
+
+    <ServiceBlock
+      number="03"
+      title="UI / UX Design"
+      summary="Software that users avoid is software that does not return value. We design interfaces that are clear, accessible, and built around real user tasks."
+      color={c[2]}
+    >
+      <CheckList
+        color={c[2]}
+        items={[
+          'User research and persona definition.',
+          'Information architecture and interaction design.',
+          'Wireframes, interactive prototypes, and high-fidelity mockups.',
+          'Accessibility (WCAG) and responsive design across devices.',
+          'Design system creation for consistency at scale.',
+        ]}
+      />
+    </ServiceBlock>
+
+    <ServiceBlock
+      number="04"
+      title="Development & Engineering"
+      summary="This is the work we love. Our engineers build production systems across web, cloud, data, and enterprise platforms."
+      color={c[3]}
+    >
+      <div class="grid gap-8 sm:grid-cols-2">
+        <CheckList
+          color={c[3]}
+          heading="Web & Full-Stack"
+          items={[
+            'Modern front-end: React, Angular, TypeScript.',
+            'Back-end: Java, .NET, Node.js, Python.',
+            'RESTful and GraphQL APIs, real-time and event-driven systems.',
+          ]}
+        />
+        <CheckList
+          color={c[3]}
+          heading="Cloud & DevOps"
+          items={[
+            'Cloud-native development on AWS, Azure, and Google Cloud.',
+            'Infrastructure-as-Code with Terraform and CloudFormation.',
+            'Containerization with Docker and orchestration with Kubernetes.',
+          ]}
+        />
+        <CheckList
+          color={c[3]}
+          heading="Data, AI & ML"
+          items={[
+            'Data pipelines, warehouses, and lakehouse architectures.',
+            'Analytics, business intelligence, and reporting platforms.',
+            'Machine learning and generative AI — prototype to production.',
+          ]}
+        />
+        <CheckList
+          color={c[3]}
+          heading="Enterprise & Modernization"
+          items={[
+            'Legacy modernization, re-platforming, and incremental migration.',
+            'ERP and enterprise system integration.',
+            'API-led integration across SaaS and on-premise systems.',
+          ]}
+        />
+      </div>
+    </ServiceBlock>
+
+    <ServiceBlock
+      number="05"
+      title="Quality Assurance & Testing"
+      summary="Quality is not a phase we do at the end. It is built into how we work every day."
+      color={c[4]}
+    >
+      <CheckList
+        color={c[4]}
+        items={[
+          'Test strategy and test planning aligned with risk.',
+          'Unit, integration, contract, and end-to-end automated testing.',
+          'Performance, load, and stress testing.',
+          'Security testing: static analysis, dependency scanning, and penetration testing coordination.',
+          'User acceptance testing facilitation and bug triage.',
+        ]}
+      />
+    </ServiceBlock>
+
+    <ServiceBlock
+      number="06"
+      title="DevOps, Deployment & Release"
+      summary="Shipping software reliably is its own discipline. We treat it that way."
+      color={c[5]}
+    >
+      <CheckList
+        color={c[5]}
+        items={[
+          'CI/CD pipelines for repeatable, audited deployments.',
+          'Environment strategy: development, staging, pre-production, production.',
+          'Configuration and secrets management.',
+          'Release planning, rollback strategies, and zero-downtime deployments.',
+          'Observability: structured logging, metrics, distributed tracing, and alerting.',
+        ]}
+      />
+    </ServiceBlock>
+
+    <ServiceBlock
+      number="07"
+      title="Production Support & Maintenance"
+      summary="Going live is the start, not the end. We stay with the product."
+      color={c[6]}
+    >
+      <CheckList
+        color={c[6]}
+        items={[
+          'Application monitoring and incident response.',
+          'SLA-backed support tiers tailored to business criticality.',
+          'Patching, dependency upgrades, and security advisories.',
+          'Performance tuning and cost optimization over time.',
+          'Continuous improvement: new features, refactoring, and technical debt reduction.',
+        ]}
+      />
+    </ServiceBlock>
+  </Section>
+
+  <Section tone="mist">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Technology stack</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">Technology-pragmatic, by principle.</h2>
+      <p class="mt-4 text-slate-600">
+        The list below reflects the stack we use most often. On any given engagement, we choose
+        tools that fit your problem, your existing landscape, and your team.
+      </p>
+    </div>
+    <div class="mt-10">
+      <TechTable rows={techRows} />
+    </div>
+  </Section>
+
+  <CTABand
+    title="Not sure which phase you need?"
+    text="That is exactly what a free discovery conversation is for. We will tell you honestly."
+  />
+</BaseLayout>

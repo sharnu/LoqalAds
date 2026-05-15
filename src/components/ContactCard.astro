@@ -1,0 +1,40 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  value: string;
+  note: string;
+  external?: boolean;
+  accent?: string;
+}
+
+const { href, label, value, note, external = false, accent = '#4F46E5' } = Astro.props;
+const rel = external ? 'noopener noreferrer' : undefined;
+const target = external ? '_blank' : undefined;
+---
+
+<a
+  href={href}
+  rel={rel}
+  target={target}
+  class="group flex items-start gap-4 rounded-xl border border-line bg-white p-6 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow"
+>
+  <span
+    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg transition-transform duration-200 group-hover:scale-110"
+    style={`background-color:${accent}1F;color:${accent}`}
+  >
+    <slot name="icon" />
+  </span>
+  <span class="min-w-0">
+    <span class="block text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
+      {label}
+    </span>
+    <span
+      class="mt-1 block font-display text-lg font-bold text-ink transition-colors"
+      style={`--c:${accent}`}
+    >
+      {value}
+    </span>
+    <span class="mt-1 block text-sm text-slate-500">{note}</span>
+  </span>
+</a>

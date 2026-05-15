@@ -1,0 +1,21 @@
+---
+interface Props {
+  tone?: 'white' | 'mist' | 'ink';
+  id?: string;
+  class?: string;
+}
+
+const { tone = 'white', id, class: className = '' } = Astro.props;
+
+const tones: Record<string, string> = {
+  white: 'bg-white',
+  mist: 'bg-mist',
+  ink: 'bg-ink',
+};
+---
+
+<section id={id} class={`${tones[tone]} ${className}`}>
+  <div class="wrap py-16 sm:py-20 lg:py-24">
+    <slot />
+  </div>
+</section>

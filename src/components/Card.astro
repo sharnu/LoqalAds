@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+  accent?: string;
+}
+
+const { class: className = '', accent } = Astro.props;
+---
+
+<div
+  class={`group/card overflow-hidden rounded-xl border border-line bg-white shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow ${className}`}
+>
+  {accent && <div class="h-1.5 w-full" style={`background-color:${accent}`}></div>}
+  <div class="p-6 sm:p-7">
+    <slot />
+  </div>
+</div>

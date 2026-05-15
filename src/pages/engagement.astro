@@ -1,0 +1,86 @@
+---
+import { spectrum } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import CTABand from '../components/CTABand.astro';
+
+const models = [
+  {
+    title: 'Project-based delivery',
+    idealFor: 'Scope, outcome, and success criteria are well defined.',
+    text: 'We agree on deliverables, timeline, and pricing up front, then deliver against them.',
+  },
+  {
+    title: 'Dedicated engineering team',
+    idealFor: 'Ongoing product development and long-running initiatives.',
+    text: 'A senior squad operates as an extension of your engineering organization, with full transparency into capacity, velocity, and roadmap.',
+  },
+  {
+    title: 'Staff augmentation',
+    idealFor: 'You have a strong internal team but need senior expertise in a specific area.',
+    text: 'Architecture review, cloud migration, performance turnaround, or a hard-to-hire skill set — added exactly where you need it.',
+  },
+  {
+    title: 'Advisory & technical due diligence',
+    idealFor: 'Founders, investors, and CTOs who need an honest, expert opinion.',
+    text: 'A clear-eyed assessment of an architecture, a codebase, a vendor, or a build-versus-buy decision.',
+  },
+  {
+    title: 'Managed support & maintenance',
+    idealFor: 'A system is live and needs to stay reliable.',
+    text: 'SLA-backed ongoing support, enhancement, and modernization — keeping your software reliable, secure, and current.',
+  },
+];
+---
+
+<BaseLayout
+  title="Engagement Models"
+  description="Flexible engagement models from Nexus Engineering — project-based delivery, dedicated teams, staff augmentation, advisory, and managed support."
+>
+  <PageHeader
+    eyebrow="Engagement models"
+    title="Engaged the way that suits your problem."
+    intro="No two clients arrive with the same problem, timeline, or risk appetite. We will recommend the model that gives you the best outcome — not the one that maximizes our hours."
+  />
+
+  <Section>
+    <div class="grid gap-6 lg:grid-cols-2">
+      {
+        models.map((m, i) => {
+          const color = spectrum[i % spectrum.length];
+          const isLast = i === models.length - 1 && models.length % 2 === 1;
+          return (
+            <Card accent={color} class={isLast ? 'lg:col-span-2' : ''}>
+              <h2 class="text-xl">{m.title}</h2>
+              <p
+                class="mt-3 text-xs font-bold uppercase tracking-[0.12em]"
+                style={`color:${color}`}
+              >
+                Ideal when
+              </p>
+              <p class="mt-1 text-[15px] leading-7 text-slate-600">{m.idealFor}</p>
+              <p class="mt-3 text-[15px] leading-7 text-slate-600">{m.text}</p>
+            </Card>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <Section tone="mist">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="font-display text-2xl leading-relaxed text-ink sm:text-3xl">
+        &ldquo;Every engagement starts the same way: a free discovery conversation, followed by a
+        written proposal that explains exactly what we will do, how long it will take, and what it
+        will cost. No surprises.&rdquo;
+      </p>
+    </div>
+  </Section>
+
+  <CTABand
+    title="Tell us about your project."
+    text="We will recommend the engagement model that gives you the best outcome — and tell you if we are not the right fit."
+  />
+</BaseLayout>

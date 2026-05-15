@@ -1,0 +1,235 @@
+---
+import { getCollection } from 'astro:content';
+import { spectrum, site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import StatStrip from '../components/StatStrip.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import CTABand from '../components/CTABand.astro';
+
+const studies = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+
+const reasons = [
+  {
+    title: 'Seniority on every seat',
+    text: 'No junior hand-offs and no learning on your budget. Every engineer has 14 to 25 years of experience.',
+  },
+  {
+    title: 'Direct accountability',
+    text: 'You work with the engineers building your product — not a layer of account managers relaying messages.',
+  },
+  {
+    title: 'Full-lifecycle ownership',
+    text: 'We do not stop at code. We own discovery, design, delivery, deployment, and the support that follows.',
+  },
+  {
+    title: 'Transparent execution',
+    text: 'Clear plans, visible progress, predictable communication. You always know where your project stands.',
+  },
+];
+
+const delivers = [
+  {
+    title: 'End-to-end development',
+    text: 'From the first requirements conversation to a stable, monitored, well-documented production system.',
+  },
+  {
+    title: 'Modern web platforms',
+    text: 'Full-stack web applications, real-time systems, and event-driven architectures.',
+  },
+  {
+    title: 'Cloud-native architecture',
+    text: 'Cloud-native development, infrastructure-as-code, and reliable, automated delivery.',
+  },
+  {
+    title: 'Data, AI & ML',
+    text: 'Data pipelines, analytics platforms, and machine learning from prototype to production.',
+  },
+  {
+    title: 'Enterprise modernization',
+    text: 'Legacy re-platforming, incremental migration, and API-led integration.',
+  },
+];
+
+const stats = [
+  { value: '14–25 yrs', label: 'Experience per engineer' },
+  { value: '5–10', label: 'Senior engineers' },
+  { value: '100%', label: 'Remote & distributed' },
+  { value: 'End-to-end', label: 'Discovery to run' },
+];
+---
+
+<BaseLayout
+  title="Nexus Engineering"
+  description="Nexus Engineering is a small, senior software engineering team — 14 to 25 years of experience per engineer — that designs, builds, ships, and maintains production-grade software, end-to-end."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-line bg-white">
+    <div
+      class="absolute left-1/2 top-0 h-72 w-[680px] -translate-x-1/2 rounded-full bg-spectrum opacity-[0.12] blur-[120px]"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="wrap relative py-16 text-center sm:py-20 lg:py-24">
+      <span class="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.16em]">
+        <span class="h-[2px] w-6 rounded-full bg-spectrum"></span>
+        <span class="text-spectrum">{site.tagline}</span>
+        <span class="h-[2px] w-6 rounded-full bg-spectrum"></span>
+      </span>
+      <h1 class="mx-auto mt-5 max-w-4xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+        Production-grade software, <span class="text-spectrum">end-to-end.</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+        A small, senior squad &mdash; 14 to 25 years of experience per engineer &mdash; that
+        designs, builds, ships, and maintains software for clients who cannot afford to get it
+        wrong.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <Button href="/contact">Start a conversation</Button>
+        <Button href="/how-we-work" variant="secondary">See how we work</Button>
+      </div>
+      <p class="mt-8 text-sm font-medium text-slate-500">
+        Fully remote &middot; Senior on every seat &middot; Full-lifecycle ownership
+      </p>
+    </div>
+  </section>
+
+  <!-- Lifecycle -->
+  <Section tone="mist">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow justify-center">How we deliver</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">From discovery to production — one team.</h2>
+      <p class="mt-4 text-slate-600">
+        We take responsibility for the entire journey. The same senior engineers who scope your
+        project are the ones who run it well in production.
+      </p>
+    </div>
+    <div class="relative mx-auto mt-12 w-full max-w-[620px]">
+      <div
+        class="absolute -inset-6 rounded-[2.5rem] bg-spectrum opacity-20 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <img
+        src="/lifecycle.jpg"
+        alt="The Nexus Engineering delivery lifecycle — Discover, Design, Build, Ship, and Run — handled by one senior team from first scope through production."
+        width="1080"
+        height="1080"
+        loading="lazy"
+        class="relative w-full rounded-2xl shadow-card ring-1 ring-line"
+      />
+    </div>
+  </Section>
+
+  <!-- Problem -->
+  <Section>
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="eyebrow justify-center">Why this matters</p>
+      <p class="mt-4 font-display text-2xl leading-relaxed text-ink sm:text-3xl">
+        &ldquo;Most software projects fail in the first two weeks &mdash; long before any code is
+        written &mdash; because the wrong problem gets defined.&rdquo;
+      </p>
+      <p class="mt-5 text-slate-600">
+        We are deliberately small and deliberately senior. That combination is what lets us move
+        quickly without breaking things, communicate directly with founders and CTOs, and own
+        outcomes rather than tickets.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Why clients choose us -->
+  <Section tone="mist">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Why clients choose us</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">Judgement you can hire, not just hours.</h2>
+    </div>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        reasons.map((r, i) => {
+          const color = spectrum[i % spectrum.length];
+          return (
+            <Card accent={color}>
+              <span
+                class="inline-flex h-11 w-11 items-center justify-center rounded-xl font-display text-base font-bold"
+                style={`background-color:${color}1F;color:${color}`}
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 class="mt-4 text-lg">{r.title}</h3>
+              <p class="mt-2 text-[15px] leading-7 text-slate-600">{r.text}</p>
+            </Card>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <!-- What we deliver -->
+  <Section>
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-4">
+        <p class="eyebrow">What we deliver</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl">Production-grade software, across the stack.</h2>
+        <p class="mt-4 text-slate-600">
+          Modern web platforms, cloud-native architectures, data and AI/ML solutions, and
+          enterprise modernization &mdash; delivered as a service in its own right, or as part of a
+          full-lifecycle engagement.
+        </p>
+        <div class="mt-6">
+          <Button href="/services" variant="secondary">Explore our services</Button>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <div class="grid gap-6 sm:grid-cols-2">
+          {
+            delivers.map((d, i) => (
+              <Card accent={spectrum[i % spectrum.length]}>
+                <h3 class="text-lg">{d.title}</h3>
+                <p class="mt-2 text-[15px] leading-7 text-slate-600">{d.text}</p>
+              </Card>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- At a glance -->
+  <Section tone="mist">
+    <div class="mb-10 max-w-2xl">
+      <p class="eyebrow">At a glance</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">A small team, by design.</h2>
+    </div>
+    <StatStrip stats={stats} />
+  </Section>
+
+  <!-- Representative work -->
+  <Section>
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <p class="eyebrow">Representative work</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl">Engagements we are proud of.</h2>
+      </div>
+      <Button href="/work" variant="secondary">See all work</Button>
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      {
+        studies.map((study, i) => (
+          <CaseStudyCard
+            href={`/work/${study.slug}`}
+            service={study.data.service}
+            title={study.data.title}
+            client={study.data.client}
+            summary={study.data.summary}
+            outcomes={study.data.outcomes}
+            accent={spectrum[i % spectrum.length]}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <CTABand />
+</BaseLayout>

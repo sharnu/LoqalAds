@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-[15px] leading-relaxed text-slate-600 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight text-ink;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+  }
+
+  /* Spectrum-tinted eyebrow label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-accent;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-[2px] w-6 rounded-full;
+    background-image: linear-gradient(90deg, #7c3aed, #2563eb, #06b6d4);
+  }
+
+  /* Gradient text for headline accent words (tuned for light backgrounds) */
+  .text-spectrum {
+    background-image: linear-gradient(110deg, #7c3aed, #4f46e5, #2563eb, #0891b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Thin spectrum rule */
+  .spectrum-bar {
+    @apply h-1 w-full bg-spectrum;
+  }
+
+  /* Styles applied to rendered Markdown case-study bodies */
+  .prose-content :where(h2) {
+    @apply mb-4 mt-12 font-display text-2xl text-ink first:mt-0;
+  }
+
+  .prose-content :where(h3) {
+    @apply mb-3 mt-8 font-display text-xl text-ink;
+  }
+
+  .prose-content :where(p) {
+    @apply mb-5 text-[15px] leading-7 text-slate-600;
+  }
+
+  .prose-content :where(ul) {
+    @apply mb-5 list-disc space-y-2 pl-5 text-slate-600 marker:text-accent;
+  }
+
+  .prose-content :where(strong) {
+    @apply font-semibold text-ink;
+  }
+
+  .prose-content :where(a) {
+    @apply text-accent underline underline-offset-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
