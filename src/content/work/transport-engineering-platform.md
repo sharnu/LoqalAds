@@ -1,6 +1,6 @@
 ---
 title: A cloud-native operations platform for a transport engineering firm
-client: NorthEast Engineering
+client: Transport engineering firm
 clientDescription: A South Australia–based transport engineering firm specialising in custom truck bodies, hydraulics, and Ferrari truck cranes — serving Federal and State Governments, local councils, and mining fleets since 1999.
 service: Cloud-Native Platform
 summary: End-to-end delivery of an auditable, cloud-native workshop platform on Microsoft Azure — replacing spreadsheets and paper job cards with a single system for quotes, jobs, and compliance.

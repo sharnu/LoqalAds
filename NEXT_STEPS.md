@@ -130,8 +130,8 @@ To see visitor numbers and where enquiries come from, add an analytics tool.
 The two case studies currently use text-only cards. If you have permission to
 show client work, real images will make them stronger.
 
-- [ ] Collect approved photos/screenshots for NorthEast Engineering and
-      Lonavilla Stay.
+- [ ] Collect approved photos/screenshots for the transport engineering firm
+      and Lonavilla Stay.
 - [ ] Add them to `public/images/` and reference them in the case study
       components. (Ask the developer to wire this up — it is a small change.)
 
