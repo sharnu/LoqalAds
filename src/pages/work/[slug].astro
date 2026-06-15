@@ -30,6 +30,18 @@ const d = entry.data;
       <h1 class="mt-3 max-w-3xl text-3xl leading-tight sm:text-4xl">{d.title}</h1>
       <p class="mt-4 text-lg font-medium text-ink">{d.client}</p>
       <p class="mt-2 max-w-2xl text-[15px] leading-7 text-slate-600">{d.clientDescription}</p>
+      {
+        d.url && (
+          <a
+            href={d.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent"
+          >
+            Visit the live site &nearr;
+          </a>
+        )
+      }
     </div>
   </section>
 

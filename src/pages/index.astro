@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { spectrum, site } from '../data/site';
+import { spectrum, site, products } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
@@ -10,34 +10,23 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
 import CTABand from '../components/CTABand.astro';
 
 const studies = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const villadesk = products[0];
 
-const reasons = [
-  {
-    title: 'Seniority on every seat',
-    text: 'No junior hand-offs and no learning on your budget. Every engineer has 14 to 25 years of experience.',
-  },
-  {
-    title: 'Direct accountability',
-    text: 'You work with the engineers building your product — not a layer of account managers relaying messages.',
-  },
-  {
-    title: 'Full-lifecycle ownership',
-    text: 'We do not stop at code. We own discovery, design, delivery, deployment, and the support that follows.',
-  },
-  {
-    title: 'Transparent execution',
-    text: 'Clear plans, visible progress, predictable communication. You always know where your project stands.',
-  },
+const villadeskFeatures = [
+  'WhatsApp confirmations, reminders & review requests from your own number',
+  'UPI payment links for faster advances and balance collection',
+  'A 10-stage booking pipeline so no enquiry goes cold',
+  'iCal sync with Airbnb & Booking.com, plus GST invoicing',
 ];
 
-const delivers = [
+const services = [
   {
-    title: 'End-to-end development',
-    text: 'From the first requirements conversation to a stable, monitored, well-documented production system.',
+    title: 'Custom software development',
+    text: 'Full-stack web applications, real-time systems, and event-driven architectures, built to last.',
   },
   {
-    title: 'Modern web platforms',
-    text: 'Full-stack web applications, real-time systems, and event-driven architectures.',
+    title: 'Website design & development',
+    text: 'Fast, mobile-first, SEO-ready websites that convert — the same craft behind LonavillaStay and Altivision.',
   },
   {
     title: 'Cloud-native architecture',
@@ -51,19 +40,23 @@ const delivers = [
     title: 'Enterprise modernization',
     text: 'Legacy re-platforming, incremental migration, and API-led integration.',
   },
+  {
+    title: 'Support & maintenance',
+    text: 'SLA-backed monitoring, patching, and performance tuning for systems already in production.',
+  },
 ];
 
 const stats = [
+  { value: '2', label: 'Live products & platforms' },
   { value: '14–25 yrs', label: 'Experience per engineer' },
-  { value: '5–10', label: 'Senior engineers' },
-  { value: '100%', label: 'Remote & distributed' },
-  { value: 'End-to-end', label: 'Discovery to run' },
+  { value: '3+', label: 'Sites & apps in production' },
+  { value: 'Pune', label: 'Built in India' },
 ];
 ---
 
 <BaseLayout
-  title="Nexus Engineering"
-  description="Nexus Engineering is a small, senior software engineering team — 14 to 25 years of experience per engineer — that designs, builds, ships, and maintains production-grade software, end-to-end."
+  title="LoqalAds"
+  description="LoqalAds Media Private Limited is a Pune-based software company. We build our own products — like VillaDesk — and deliver custom software, web, cloud, and AI services, end-to-end."
 >
   <!-- Hero -->
   <section class="relative overflow-hidden border-b border-line bg-white">
@@ -75,107 +68,112 @@ const stats = [
     <div class="wrap relative py-16 text-center sm:py-20 lg:py-24">
       <span class="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.16em]">
         <span class="h-[2px] w-6 rounded-full bg-spectrum"></span>
-        <span class="text-spectrum">{site.tagline}</span>
+        <span class="text-spectrum">Software company · {site.location}</span>
         <span class="h-[2px] w-6 rounded-full bg-spectrum"></span>
       </span>
       <h1 class="mx-auto mt-5 max-w-4xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-        Production-grade software, <span class="text-spectrum">end-to-end.</span>
+        Software <span class="text-spectrum">products & services,</span> built to ship.
       </h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-        A small, senior squad &mdash; 14 to 25 years of experience per engineer &mdash; that
-        designs, builds, ships, and maintains software for clients who cannot afford to get it
-        wrong.
+        LoqalAds Media Pvt Ltd builds its own products &mdash; like VillaDesk &mdash; and delivers
+        custom software, web, cloud, and AI for clients who cannot afford to get it wrong.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <Button href="/contact">Start a conversation</Button>
-        <Button href="/how-we-work" variant="secondary">See how we work</Button>
+        <Button href="/products">Explore our products</Button>
+        <Button href="/services" variant="secondary">See our services</Button>
       </div>
       <p class="mt-8 text-sm font-medium text-slate-500">
-        Fully remote &middot; Senior on every seat &middot; Full-lifecycle ownership
+        Senior team &middot; Full-lifecycle ownership &middot; Based in Pune, working worldwide
       </p>
     </div>
   </section>
 
-  <!-- Lifecycle -->
+  <!-- Two pillars -->
   <Section tone="mist">
     <div class="mx-auto max-w-2xl text-center">
-      <p class="eyebrow justify-center">How we deliver</p>
-      <h2 class="mt-3 text-3xl sm:text-4xl">From discovery to production — one team.</h2>
+      <p class="eyebrow justify-center">What we do</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl">Two ways we create value.</h2>
       <p class="mt-4 text-slate-600">
-        We take responsibility for the entire journey. The same senior engineers who scope your
-        project are the ones who run it well in production.
+        We invest in products of our own, and we put the same senior engineering to work for
+        clients as a service.
       </p>
     </div>
-    <div class="relative mx-auto mt-12 w-full max-w-[620px]">
-      <div
-        class="absolute -inset-6 rounded-[2.5rem] bg-spectrum opacity-20 blur-3xl"
-        aria-hidden="true"
-      >
-      </div>
-      <img
-        src="/lifecycle.jpg"
-        alt="The Nexus Engineering delivery lifecycle — Discover, Design, Build, Ship, and Run — handled by one senior team from first scope through production."
-        width="1080"
-        height="1080"
-        loading="lazy"
-        class="relative w-full rounded-2xl shadow-card ring-1 ring-line"
-      />
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      <Card accent={spectrum[1]}>
+        <span
+          class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.12em]"
+          style={`background-color:${spectrum[1]}1F;color:${spectrum[1]}`}
+        >
+          Products
+        </span>
+        <h3 class="mt-4 text-2xl">Software we build and run.</h3>
+        <p class="mt-3 text-[15px] leading-7 text-slate-600">
+          Our flagship product, <strong>VillaDesk</strong>, is a WhatsApp-assisted guest CRM for
+          independent villa and homestay owners in India &mdash; helping them run a single villa
+          like a hotel chain.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href={villadesk.href} variant="secondary">Explore VillaDesk</Button>
+          <Button href={villadesk.external} variant="ghost" external>Visit villadesk.in &rarr;</Button>
+        </div>
+      </Card>
+      <Card accent={spectrum[3]}>
+        <span
+          class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.12em]"
+          style={`background-color:${spectrum[3]}1F;color:${spectrum[3]}`}
+        >
+          Services
+        </span>
+        <h3 class="mt-4 text-2xl">Engineering delivered for you.</h3>
+        <p class="mt-3 text-[15px] leading-7 text-slate-600">
+          Custom software, websites, cloud platforms, and data/AI &mdash; designed, built, shipped,
+          and maintained end-to-end by a small, senior team.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href="/services" variant="secondary">Explore services</Button>
+          <Button href="/work" variant="ghost">See our work &rarr;</Button>
+        </div>
+      </Card>
     </div>
   </Section>
 
-  <!-- Problem -->
-  <Section>
-    <div class="mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">Why this matters</p>
-      <p class="mt-4 font-display text-2xl leading-relaxed text-ink sm:text-3xl">
-        &ldquo;Most software projects fail in the first two weeks &mdash; long before any code is
-        written &mdash; because the wrong problem gets defined.&rdquo;
-      </p>
-      <p class="mt-5 text-slate-600">
-        We are deliberately small and deliberately senior. That combination is what lets us move
-        quickly without breaking things, communicate directly with founders and CTOs, and own
-        outcomes rather than tickets.
-      </p>
-    </div>
-  </Section>
-
-  <!-- Why clients choose us -->
-  <Section tone="mist">
-    <div class="max-w-2xl">
-      <p class="eyebrow">Why clients choose us</p>
-      <h2 class="mt-3 text-3xl sm:text-4xl">Judgement you can hire, not just hours.</h2>
-    </div>
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        reasons.map((r, i) => {
-          const color = spectrum[i % spectrum.length];
-          return (
-            <Card accent={color}>
-              <span
-                class="inline-flex h-11 w-11 items-center justify-center rounded-xl font-display text-base font-bold"
-                style={`background-color:${color}1F;color:${color}`}
-              >
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 class="mt-4 text-lg">{r.title}</h3>
-              <p class="mt-2 text-[15px] leading-7 text-slate-600">{r.text}</p>
-            </Card>
-          );
-        })
-      }
-    </div>
-  </Section>
-
-  <!-- What we deliver -->
+  <!-- Featured product: VillaDesk -->
   <Section>
     <div class="grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow">Featured product</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl">VillaDesk &mdash; run your villa like a hotel chain.</h2>
+        <p class="mt-4 text-slate-600">
+          {villadesk.summary}
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href={villadesk.external} external>Visit VillaDesk</Button>
+          <Button href={villadesk.href} variant="secondary">Learn more</Button>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            villadeskFeatures.map((f, i) => (
+              <Card accent={spectrum[i % spectrum.length]}>
+                <p class="text-[15px] font-medium leading-7 text-ink">{f}</p>
+              </Card>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- What we deliver (services) -->
+  <Section tone="mist">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-12">
       <div class="lg:col-span-4">
-        <p class="eyebrow">What we deliver</p>
+        <p class="eyebrow">Services</p>
         <h2 class="mt-3 text-3xl sm:text-4xl">Production-grade software, across the stack.</h2>
         <p class="mt-4 text-slate-600">
-          Modern web platforms, cloud-native architectures, data and AI/ML solutions, and
-          enterprise modernization &mdash; delivered as a service in its own right, or as part of a
-          full-lifecycle engagement.
+          Modern web platforms, websites, cloud-native architectures, and data/AI &mdash; delivered
+          as a service in its own right, or as a full-lifecycle engagement.
         </p>
         <div class="mt-6">
           <Button href="/services" variant="secondary">Explore our services</Button>
@@ -184,7 +182,7 @@ const stats = [
       <div class="lg:col-span-8">
         <div class="grid gap-6 sm:grid-cols-2">
           {
-            delivers.map((d, i) => (
+            services.map((d, i) => (
               <Card accent={spectrum[i % spectrum.length]}>
                 <h3 class="text-lg">{d.title}</h3>
                 <p class="mt-2 text-[15px] leading-7 text-slate-600">{d.text}</p>
@@ -197,20 +195,20 @@ const stats = [
   </Section>
 
   <!-- At a glance -->
-  <Section tone="mist">
+  <Section>
     <div class="mb-10 max-w-2xl">
       <p class="eyebrow">At a glance</p>
-      <h2 class="mt-3 text-3xl sm:text-4xl">A small team, by design.</h2>
+      <h2 class="mt-3 text-3xl sm:text-4xl">A focused team, with skin in the game.</h2>
     </div>
     <StatStrip stats={stats} />
   </Section>
 
-  <!-- Representative work -->
-  <Section>
+  <!-- Selected work -->
+  <Section tone="mist">
     <div class="flex flex-wrap items-end justify-between gap-6">
       <div class="max-w-2xl">
-        <p class="eyebrow">Representative work</p>
-        <h2 class="mt-3 text-3xl sm:text-4xl">Engagements we are proud of.</h2>
+        <p class="eyebrow">Selected work</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl">Products and sites in production.</h2>
       </div>
       <Button href="/work" variant="secondary">See all work</Button>
     </div>

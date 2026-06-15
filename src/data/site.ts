@@ -2,23 +2,37 @@
 // Nothing brand-related should be hard-coded twice across the site.
 
 export const site = {
-  name: 'Nexus Engineering',
+  name: 'LoqalAds',
   legalName: 'LoqalAds Media Private Limited',
+  shortName: 'LoqalAds',
+  location: 'Pune, India',
   domain: 'www.loqalads.in',
   url: 'https://www.loqalads.in',
-  tagline: 'Building Solutions. Delivering Impact.',
-  supportingLine: 'From requirements to production — and beyond.',
+  tagline: 'Software products & services, built in Pune.',
+  supportingLine: 'Products our customers rely on — and services that ship.',
   description:
-    'Nexus Engineering is a small, senior software engineering team — 14 to 25 years of experience per engineer — that designs, builds, ships, and maintains production-grade software, end-to-end.',
+    'LoqalAds Media Private Limited is a Pune-based software company. We build our own products — like VillaDesk, our guest CRM for villa and homestay owners — and deliver custom software, web, cloud, and AI services for clients end-to-end.',
   email: 'loqalads@gmail.com',
   phone: '+91 99213 89393',
   phoneRaw: '+919921389393',
   whatsapp: 'https://wa.me/919921389393',
 } as const;
 
-// The SDLC spectrum — drawn from the lifecycle ring in the Nexus logo.
-// Used as decorative per-item accents across the site. Each value works
-// both as a foreground colour and, at low opacity, as a soft chip tint.
+// Products built and owned by LoqalAds.
+export const products = [
+  {
+    name: 'VillaDesk',
+    tagline: 'Run your villa like a hotel chain.',
+    summary:
+      'A WhatsApp-assisted guest CRM built for independent villa and homestay owners in India — capture every enquiry, automate messaging, and stop revenue leaks.',
+    href: '/products/villadesk',
+    external: 'https://www.villadesk.in',
+  },
+] as const;
+
+// The spectrum — used as decorative per-item accents across the site.
+// Each value works both as a foreground colour and, at low opacity, as a soft
+// chip tint.
 export const spectrum = [
   '#7C3AED', // violet
   '#2563EB', // blue
@@ -30,9 +44,8 @@ export const spectrum = [
 ] as const;
 
 export const nav = [
+  { label: 'Products', href: '/products' },
   { label: 'Services', href: '/services' },
-  { label: 'How We Work', href: '/how-we-work' },
-  { label: 'Engagement', href: '/engagement' },
   { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
 ] as const;

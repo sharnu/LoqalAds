@@ -14,6 +14,8 @@ outcomes:
   - Recovered roughly 15–20% per direct booking lost to aggregator commissions
   - Mobile page-load times brought under 2 seconds
   - Direct enquiries up around 35% in the first 3 months
+url: https://www.lonavillastay.in
+kind: website
 order: 2
 ---
 

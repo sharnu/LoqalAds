@@ -15,7 +15,8 @@ outcomes:
   - 99.9% uptime sustained over the first 3 months
   - Quote turnaround time cut by roughly 40%
   - A single audit trail for body-build certifications
-order: 1
+kind: platform
+order: 4
 ---
 
 ## Challenge

@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#0A0F22',
-        midnight: '#141C38',
-        mist: '#F4F6FC',
-        line: '#E5E8F2',
+        ink: '#0A1A3C',
+        midnight: '#0D2552',
+        mist: '#F2F6FF',
+        line: '#E2E8F5',
         accent: {
-          DEFAULT: '#4F46E5',
-          dark: '#4338CA',
+          DEFAULT: '#1E80FF',
+          dark: '#1366D6',
         },
       },
       fontFamily: {
@@ -21,14 +21,14 @@ export default {
         content: '1200px',
       },
       boxShadow: {
-        card: '0 1px 2px rgba(10, 15, 34, 0.04), 0 10px 30px rgba(10, 15, 34, 0.07)',
-        glow: '0 24px 70px -20px rgba(79, 70, 229, 0.45)',
+        card: '0 1px 2px rgba(10, 26, 60, 0.04), 0 10px 30px rgba(10, 26, 60, 0.08)',
+        glow: '0 24px 70px -20px rgba(30, 128, 255, 0.45)',
       },
       backgroundImage: {
         spectrum:
           'linear-gradient(90deg, #7C3AED, #2563EB, #06B6D4, #10B981, #F59E0B, #F97316)',
         'spectrum-diag':
-          'linear-gradient(120deg, #6D28D9, #4F46E5, #2563EB, #0891B2)',
+          'linear-gradient(120deg, #1366D6, #1E80FF, #2563EB, #0891B2)',
       },
     },
   },

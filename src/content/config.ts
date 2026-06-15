@@ -10,6 +10,8 @@ const work = defineCollection({
     summary: z.string(),
     tags: z.array(z.string()),
     outcomes: z.array(z.string()),
+    url: z.string().url().optional(),
+    kind: z.enum(['product', 'website', 'platform']).default('website'),
     order: z.number().default(0),
   }),
 });

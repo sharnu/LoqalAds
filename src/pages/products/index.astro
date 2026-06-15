@@ -1,0 +1,54 @@
+---
+import { spectrum, products } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import Button from '../../components/Button.astro';
+import CTABand from '../../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Products"
+  description="Products built and run by LoqalAds Media Pvt Ltd, including VillaDesk — a WhatsApp-assisted guest CRM for villa and homestay owners in India."
+>
+  <PageHeader
+    eyebrow="Products"
+    title="Software we build, own, and run."
+    intro="Alongside our client services, we invest in products of our own — software we operate, support, and grow."
+  />
+
+  <Section>
+    <div class="grid gap-6 lg:grid-cols-2">
+      {
+        products.map((p, i) => {
+          const color = spectrum[i % spectrum.length];
+          return (
+            <Card accent={color}>
+              <span
+                class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.12em]"
+                style={`background-color:${color}1F;color:${color}`}
+              >
+                Product
+              </span>
+              <h2 class="mt-4 text-2xl">{p.name}</h2>
+              <p class="mt-1.5 text-sm font-semibold text-slate-500">{p.tagline}</p>
+              <p class="mt-4 text-[15px] leading-7 text-slate-600">{p.summary}</p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <Button href={p.href} variant="secondary">Learn more</Button>
+                <Button href={p.external} variant="ghost" external>
+                  Visit site &rarr;
+                </Button>
+              </div>
+            </Card>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <CTABand
+    title="Have a product idea of your own?"
+    text="We design, build, and run software products end-to-end. If you have one in mind, let's talk."
+  />
+</BaseLayout>

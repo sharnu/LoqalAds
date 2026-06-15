@@ -20,17 +20,35 @@ const ogImage = new URL('/og-image.svg', site.url).href;
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: site.name,
-  legalName: site.legalName,
+  '@type': 'Organization',
+  name: site.legalName,
+  alternateName: site.shortName,
   url: site.url,
   email: site.email,
   telephone: site.phoneRaw,
   description: site.description,
   slogan: site.tagline,
   areaServed: 'Worldwide',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Pune',
+    addressRegion: 'Maharashtra',
+    addressCountry: 'IN',
+  },
+  makesOffer: {
+    '@type': 'Offer',
+    itemOffered: {
+      '@type': 'SoftwareApplication',
+      name: 'VillaDesk',
+      applicationCategory: 'BusinessApplication',
+      url: 'https://www.villadesk.in',
+      description:
+        'A WhatsApp-assisted guest CRM for independent villa and homestay owners in India.',
+    },
+  },
   knowsAbout: [
     'Software Development',
+    'Web Development',
     'Solution Architecture',
     'Cloud-Native Engineering',
     'DevOps',
@@ -66,7 +84,7 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <meta name="theme-color" content="#0B1220" />
+    <meta name="theme-color" content="#0A1A3C" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>

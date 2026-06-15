@@ -1,7 +1,8 @@
-# Nexus Engineering — loqalads.in
+# LoqalAds — loqalads.in
 
-Marketing website for **Nexus Engineering**, the software engineering practice
-of **LoqalAds Media Private Limited**.
+Marketing website for **LoqalAds Media Private Limited**, a Pune-based software
+company that builds its own products (such as **VillaDesk**) and delivers custom
+software, web, cloud, and AI services for clients.
 
 Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com) —
 static-first, near-zero JavaScript, optimised for fast mobile loads and SEO.

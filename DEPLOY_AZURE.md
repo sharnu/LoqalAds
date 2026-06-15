@@ -1,6 +1,6 @@
 # Deploying to Azure Static Web Apps via GitHub
 
-A step-by-step guide to publishing the **Nexus Engineering** website
+A step-by-step guide to publishing the **LoqalAds** website
 (`loqalads.in`) to **Azure Static Web Apps**, with automatic deployments
 on every push to GitHub.
 
