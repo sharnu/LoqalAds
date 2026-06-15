@@ -12,7 +12,7 @@ export const site = {
   supportingLine: 'Products our customers rely on — and services that ship.',
   description:
     'LoqalAds Media Private Limited is a Pune-based software company. We build our own products — like VillaDesk, our guest CRM for villa and homestay owners — and deliver custom software, web, cloud, and AI services for clients end-to-end.',
-  email: 'loqalads@gmail.com',
+  email: 'admin@loqalads.in',
   phone: '+91 99213 89393',
   phoneRaw: '+919921389393',
   whatsapp: 'https://wa.me/919921389393',

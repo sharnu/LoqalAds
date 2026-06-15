@@ -1,0 +1,144 @@
+---
+// An iPhone 14/15 Pro-style mockup whose screen shows a WhatsApp-style chat —
+// illustrating how VillaDesk replies to an enquiry automatically with a quote
+// and a UPI link, all from the owner's own number. The screen uses a true
+// iPhone Pro aspect ratio (~19.5:9) so it reads as a real device.
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`relative mx-auto w-full max-w-[300px] ${className}`}>
+  <!-- glow -->
+  <div
+    class="absolute -inset-6 rounded-[3.5rem] bg-spectrum opacity-20 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- iPhone frame -->
+  <div
+    class="relative rounded-[3rem] bg-gradient-to-br from-[#43454a] via-[#1c1c1e] to-[#2c2c2e] p-[11px] shadow-glow ring-1 ring-black/50"
+  >
+    <!-- side buttons -->
+    <span class="absolute -left-[3px] top-[108px] h-7 w-[3px] rounded-l bg-[#2c2c2e]" aria-hidden="true"></span>
+    <span class="absolute -left-[3px] top-[152px] h-12 w-[3px] rounded-l bg-[#2c2c2e]" aria-hidden="true"></span>
+    <span class="absolute -left-[3px] top-[208px] h-12 w-[3px] rounded-l bg-[#2c2c2e]" aria-hidden="true"></span>
+    <span class="absolute -right-[3px] top-[170px] h-16 w-[3px] rounded-r bg-[#2c2c2e]" aria-hidden="true"></span>
+
+    <!-- screen (true iPhone Pro aspect ratio) -->
+    <div class="relative flex aspect-[180/390] flex-col overflow-hidden rounded-[2.25rem] bg-[#ECE5DD]">
+      <!-- status bar + WhatsApp header -->
+      <div class="relative shrink-0 bg-[#075E54] pt-2.5">
+        <div class="flex items-center justify-between px-6 text-[11px] font-semibold text-white">
+          <span class="tracking-tight">9:41</span>
+          <span class="flex items-center gap-1.5">
+            <!-- cellular -->
+            <svg class="h-2.5 w-4" viewBox="0 0 18 12" fill="currentColor" aria-hidden="true">
+              <rect x="0" y="8" width="3" height="4" rx="0.5" />
+              <rect x="5" y="5.5" width="3" height="6.5" rx="0.5" />
+              <rect x="10" y="3" width="3" height="9" rx="0.5" />
+              <rect x="15" y="0.5" width="3" height="11.5" rx="0.5" />
+            </svg>
+            <!-- wifi -->
+            <svg class="h-2.5 w-3.5" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+              <path d="M8 11.5 5.6 8.6a3.6 3.6 0 0 1 4.8 0L8 11.5Zm0-6.7a7 7 0 0 0-5 2.1l1.5 1.5a4.9 4.9 0 0 1 7 0l1.5-1.5a7 7 0 0 0-5-2.1Zm0-4.3A11 11 0 0 0 .2 3.7l1.5 1.5a8.9 8.9 0 0 1 12.6 0l1.5-1.5A11 11 0 0 0 8 .5Z" />
+            </svg>
+            <!-- battery -->
+            <span class="ml-0.5 flex items-center">
+              <span class="relative h-2.5 w-5 rounded-[3px] ring-1 ring-white/70">
+                <span class="absolute inset-[1.5px] right-1 rounded-[1px] bg-white"></span>
+              </span>
+              <span class="ml-[1px] h-1 w-[2px] rounded-r bg-white/70"></span>
+            </span>
+          </span>
+        </div>
+
+        <!-- Dynamic Island -->
+        <div class="mx-auto mt-1.5 h-6 w-24 rounded-full bg-black"></div>
+
+        <!-- WhatsApp contact header -->
+        <div class="-mt-7 flex items-center gap-3 px-4 pb-3 pt-9 text-white">
+          <svg class="h-4 w-4 text-white/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347Z" />
+            </svg>
+          </span>
+          <div class="leading-tight">
+            <p class="text-sm font-semibold">Lonavala Pool Villa</p>
+            <p class="text-[10px] text-white/70">VillaDesk · online</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- chat body (grows to fill the tall screen; messages sit near the bottom) -->
+      <div class="flex flex-1 flex-col justify-end gap-2.5 px-3 py-4 text-[12px] leading-snug">
+        <div class="mb-1 flex justify-center">
+          <span class="rounded-md bg-white/70 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-slate-500">Today</span>
+        </div>
+
+        <!-- incoming -->
+        <div class="max-w-[78%] rounded-lg rounded-tl-none bg-white px-3 py-2 text-ink shadow-sm">
+          Hi, is the villa free next weekend for 8 guests?
+          <span class="ml-1 text-[9px] text-slate-400">9:02 AM</span>
+        </div>
+
+        <!-- outgoing auto-reply -->
+        <div class="ml-auto max-w-[82%] rounded-lg rounded-tr-none bg-[#DCF8C6] px-3 py-2 text-ink shadow-sm">
+          Hi Rahul! 👋 Yes — 12–14 Jul is open. Here's your quote:
+          <div class="mt-2 rounded-md bg-white/70 p-2 text-[11px]">
+            <p class="font-semibold">2 nights · 8 guests</p>
+            <p class="mt-0.5 text-slate-600">₹42,000 + GST · Pool + breakfast</p>
+          </div>
+          <span class="float-right mt-1 text-[9px] text-emerald-700">9:02 AM ✓✓</span>
+        </div>
+
+        <!-- outgoing UPI link -->
+        <div class="ml-auto max-w-[82%] rounded-lg rounded-tr-none bg-[#DCF8C6] px-3 py-2 text-ink shadow-sm">
+          Lock it in with a 30% advance:
+          <div class="mt-2 flex items-center gap-2 rounded-md bg-white px-2 py-1.5">
+            <span class="flex h-6 w-6 items-center justify-center rounded bg-accent text-[10px] font-bold text-white">₹</span>
+            <span class="text-[11px] font-semibold text-accent">Pay ₹12,600 via UPI →</span>
+          </div>
+          <span class="float-right mt-1 text-[9px] text-emerald-700">9:03 AM ✓✓</span>
+        </div>
+
+        <!-- automation tag -->
+        <div class="flex justify-center">
+          <span class="rounded-full bg-black/5 px-2.5 py-1 text-[9px] font-medium text-slate-500">
+            Sent automatically by VillaDesk
+          </span>
+        </div>
+      </div>
+
+      <!-- WhatsApp input bar -->
+      <div class="flex shrink-0 items-center gap-2 px-2.5 pb-1 pt-1">
+        <div class="flex flex-1 items-center gap-2 rounded-full bg-white px-3 py-2 text-[11px] text-slate-400 shadow-sm">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M9 10h.01M15 10h.01M8.5 14.5a4 4 0 0 0 7 0" stroke-linecap="round" />
+          </svg>
+          <span class="flex-1">Message</span>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z" />
+            <circle cx="12" cy="13" r="3" />
+          </svg>
+        </div>
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#128C7E] text-white shadow-sm">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Zm7 9a1 1 0 1 0-2 0 5 5 0 0 1-10 0 1 1 0 1 0-2 0 7 7 0 0 0 6 6.92V21a1 1 0 1 0 2 0v-3.08A7 7 0 0 0 19 11Z" />
+          </svg>
+        </span>
+      </div>
+
+      <!-- home indicator -->
+      <div class="flex shrink-0 justify-center bg-[#ECE5DD] pb-2 pt-0.5">
+        <span class="h-1 w-28 rounded-full bg-black/30"></span>
+      </div>
+    </div>
+  </div>
+</div>

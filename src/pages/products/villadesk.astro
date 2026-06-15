@@ -4,6 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
 import Card from '../../components/Card.astro';
 import Button from '../../components/Button.astro';
+import PhoneMockup from '../../components/PhoneMockup.astro';
+import IntegrationStrip from '../../components/IntegrationStrip.astro';
 
 const VILLADESK = 'https://www.villadesk.in';
 
@@ -76,23 +78,28 @@ const plans = [
       aria-hidden="true"
     >
     </div>
-    <div class="wrap relative py-16 text-center sm:py-20">
-      <p class="eyebrow justify-center">A product by {site.name}</p>
-      <h1 class="mx-auto mt-4 max-w-4xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-        Run your villa <span class="text-spectrum">like a hotel chain.</span>
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-        VillaDesk is a WhatsApp-assisted guest CRM built only for independent villa and homestay
-        owners in India — capture every enquiry, automate messaging, and stop revenue leaking to OTA
-        commissions, slow replies, and uncollected balances.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <Button href={VILLADESK} external>Start a 14-day free trial</Button>
-        <Button href={VILLADESK} variant="secondary" external>Visit villadesk.in &rarr;</Button>
+    <div class="wrap relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
+      <div class="text-center lg:text-left">
+        <p class="eyebrow justify-center lg:justify-start">A product by {site.name}</p>
+        <h1 class="mt-4 text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+          Run your villa <span class="text-spectrum">like a hotel chain.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 lg:mx-0">
+          VillaDesk is a WhatsApp-assisted guest CRM built only for independent villa and homestay
+          owners in India — capture every enquiry, automate messaging, and stop revenue leaking to
+          OTA commissions, slow replies, and uncollected balances.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+          <Button href={VILLADESK} external>Start a 14-day free trial</Button>
+          <Button href={VILLADESK} variant="secondary" external>Visit villadesk.in &rarr;</Button>
+        </div>
+        <p class="mt-6 text-sm font-medium text-slate-500">
+          No credit card required &middot; Built for India &middot; WhatsApp &amp; UPI native
+        </p>
       </div>
-      <p class="mt-6 text-sm font-medium text-slate-500">
-        No credit card required &middot; Built for India &middot; WhatsApp &amp; UPI native
-      </p>
+      <div>
+        <PhoneMockup />
+      </div>
     </div>
   </section>
 
@@ -129,6 +136,8 @@ const plans = [
         })
       }
     </div>
+
+    <IntegrationStrip class="mt-16 border-t border-line pt-12" />
   </Section>
 
   <!-- Who it's for -->
